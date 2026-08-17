@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 
 myenv
-models
+model
 reports
 
 # C extensions

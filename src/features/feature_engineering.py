@@ -3,7 +3,7 @@ import logging
 import pandas as pd
 import yaml
 
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 
 # ---------------- Paths ---------------- #
@@ -74,7 +74,7 @@ def load_data():
 
 # ---------------- Create BOW Features ---------------- #
 
-def create_bow_features(
+def create_tfidf_features(
     train_data,
     test_data,
     max_features
@@ -86,7 +86,7 @@ def create_bow_features(
         X_test = test_data["content"]
         y_test = test_data["sentiment"]
 
-        vectorizer = CountVectorizer(
+        vectorizer = TfidfVectorizer(
             max_features=max_features
         )
 
@@ -128,12 +128,12 @@ def save_features(train_df, test_df):
         )
 
         train_df.to_csv(
-            FEATURES_DIR / "train_bow.csv",
+            FEATURES_DIR / "train_tfidf.csv",
             index=False
         )
 
         test_df.to_csv(
-            FEATURES_DIR / "test_bow.csv",
+            FEATURES_DIR / "test_tfdif.csv",
             index=False
         )
 
@@ -152,7 +152,7 @@ def main():
 
         train_data, test_data = load_data()
 
-        train_df, test_df = create_bow_features(
+        train_df, test_df = create_tfidf_features(
             train_data,
             test_data,
             max_features
