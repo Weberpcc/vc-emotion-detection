@@ -52,7 +52,7 @@ def load_model():
 def load_test_data():
     try:
         test_data = pd.read_csv(
-            FEATURES_DIR / "test_bow.csv"
+            FEATURES_DIR / "test_tfidf.csv"
         )
 
         X_test = test_data.iloc[:, :-1].values

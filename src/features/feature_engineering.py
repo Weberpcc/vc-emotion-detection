@@ -133,7 +133,7 @@ def save_features(train_df, test_df):
         )
 
         test_df.to_csv(
-            FEATURES_DIR / "test_tfdif.csv",
+            FEATURES_DIR / "test_tfidf.csv",
             index=False
         )
 

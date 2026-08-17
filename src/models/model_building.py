@@ -51,7 +51,7 @@ def load_params():
 def load_data():
     try:
         train_data = pd.read_csv(
-            FEATURES_DIR / "train_bow.csv"
+            FEATURES_DIR / "train_tfidf.csv"
         )
 
         X_train = train_data.iloc[:, :-1].values
